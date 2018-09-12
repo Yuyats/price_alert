@@ -37,8 +37,31 @@ class User(object):
     @staticmethod
     def register_user(email, password):
         """
+        This method registers a user using email and password
+        the password already comes hashed as sha-512
 
         :param email:
-        :param password:
-        :return:
+        :param password: sha-512 hashed
+        :return: true if registered successfully, or False otherwise
         """
+
+        user_data = Database.find_one("users", {"email": email})
+
+        if user_data is not None:
+            # already registered
+            pass
+        if not Utils.email_id_valid(email):
+            # email is not valid form
+            pass
+
+        User(email, Utils.hash_password(password)).save_to_db()
+
+    def save_to_db(self):
+        Database.insert("users", self.json())
+
+    def json(self):
+        return {
+            "_id": self._id,
+            "email": self.email,
+            "password": self.password
+        }
