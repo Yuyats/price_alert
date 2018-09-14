@@ -38,7 +38,8 @@ def register_user():
         except UserErrors.UserError as e:
             return e.message
 
-    return render_template('users/register.html')
+    return 'registered!'
+    # return render_template('users/register.html')
 
 
 @user_blueprint.route('/alerts')
