@@ -57,6 +57,9 @@ class User(object):
 
         User(email, Utils.hash_password(password)).save_to_db()
 
+        return True
+
+
     def save_to_db(self):
         Database.insert(UserConstants.COLLECTION, self.json())
 

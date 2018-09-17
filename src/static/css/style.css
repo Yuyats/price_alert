@@ -1,3 +1,7 @@
+nav{
+margin-bottom: 10px;
+}
+
 body {padding-top: 70px;}
 
 .form {
@@ -12,4 +16,8 @@ body {padding-top: 70px;}
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.btn-success {
+    margin: 10px auto;
 }
