@@ -8,6 +8,7 @@ class Utils(object):
         email_address_matcher = re.compile('^[\w-]+@([\w-]+\.)+[\w]+$')
 
         return True if email_address_matcher.match(email) else False
+
     @staticmethod
     def hash_password(password):
         """
