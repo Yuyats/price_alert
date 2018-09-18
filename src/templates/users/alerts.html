@@ -7,8 +7,10 @@
 </div>
 <div class="list-group">
     {% for alert in alerts %}
-    <a href="{{ url_for('alerts.get_alert_page', alert_id=alert._id) }}" class="list-group-item">
+    <a href="{{ url_for('alerts.get_alert_page', alert_id=alert._id) }}"
+       class="list-group-item {{ 'list-group-item-warning' if not alert.active else '' }}">
         <h4 class="list-group-item-heading">
+            <i class="{{ 'fas fa-minus-circle' if not alert.active else '' }}"></i>
             Alert for {{ alert.item.name }}
         </h4>
         <p class="list-group-item-text">
