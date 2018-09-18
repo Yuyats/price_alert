@@ -28,7 +28,8 @@ class Alert(object):
                 'from': AlertConstants.FROM,
                 "to": self.user_email,
                 'subject': 'price limit reached for {}'.format(self.item.name),
-                'text': 'we have found a deal! (link)'
+                'text': 'we have found a deal! ({}). To navigate to the alert, visit {}'.format(
+                    self.item.url, "http://localhost:4990/alerts/{}".format(self._id))
             }
         )
 
