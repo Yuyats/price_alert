@@ -1,15 +1,9 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect
-
 import src.models.users.decorators as user_decorators
 from src.models.alerts.alert import Alert
 from src.models.items.item import Item
 
 alert_blueprint = Blueprint('alerts', __name__)
-
-
-@alert_blueprint.route('/')
-def index():
-    return 'this is the alert index'
 
 
 @alert_blueprint.route('/new', methods=["GET", "POST"])

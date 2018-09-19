@@ -1,6 +1,5 @@
 from functools import wraps
-from flask import session, url_for, request
-from werkzeug.utils import redirect
+from flask import session, url_for, request, redirect
 
 from src.app import app
 
@@ -21,7 +20,7 @@ def requires_admin_permissions(func):
         if 'email' not in session.keys() or session['email'] is None:
             return redirect(url_for('users.login_user', next=request.path))
 
-        if session['email'] not in app.config.ADMINS:
+        if session['email'] not in app.config['ADMINS']:
             return redirect(url_for('users.login_user'))
 
         return func(*args, **kwargs)
