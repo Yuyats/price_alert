@@ -8,6 +8,7 @@
 </div>
 
 <div class="list-group">
+    {% if stores|length != 0 %}
     {% for store in stores %}
     <a href="{{ url_for('stores.store_page', store_id=store._id) }}" class='list-group-item'>
         <h4 class='list-group-item-title'>
@@ -18,7 +19,9 @@
         </p>
     </a>
     {% endfor %}
+    {% endif %}
 </div>
+
 
 {% if session['email'] in config.ADMINS %}
 <a class="btn btn-success" href="{{ url_for('stores.create_store') }}">
